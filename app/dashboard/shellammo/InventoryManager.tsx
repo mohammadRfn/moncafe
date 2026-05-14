@@ -10,19 +10,19 @@ import InventoryPricing from "../inventory/InventoryPricing";
 import InventoryViewer from "../inventory/InventoryViewer";
 import InventoryReserver from "../inventory/InventoryReserver";
 
-import {InventoryItem} from '../../types/inventory'
+import { InventoryItem } from '../../types/inventory'
 import { label } from "framer-motion/client";
 import InventoryTransaction from "../inventory/InventoryTransactor";
-type InventoryManagerProps={
+type InventoryManagerProps = {
   items: InventoryItem[]
 }
-export default function InventoryManager(props:InventoryManagerProps) {
+export default function InventoryManager(props: InventoryManagerProps) {
   const [activeTab, setActiveTab] = useState("create");
 
   const tabs = [
     { key: "create", label: "ایجاد کالا" },
-    { key: "stock", label: "ثبت موجودی" }, 
-    {key: "transaction", label:"تراکنش ها"},
+    { key: "stock", label: "ثبت موجودی" },
+    { key: "transaction", label: "تراکنش ها" },
     { key: "pricing", label: "قیمت‌گذاری" },
     { key: "viewer", label: "نمایش انبار" },
     { key: "reserve", label: "رزرو و رهاسازی" },
@@ -31,10 +31,10 @@ export default function InventoryManager(props:InventoryManagerProps) {
   const renderContent = () => {
     switch (activeTab) {
       case "create": return <InventoryCreate />;
-      case "transaction" : return <InventoryTransaction />
+      case "transaction": return <InventoryTransaction />
       case "stock": return <InventoryStock />;
       case "pricing": return <InventoryPricing />;
-      case "viewer": return <InventoryViewer items={props.items as any}/>;
+      case "viewer": return <InventoryViewer />;
       case "reserve": return <InventoryReserver />;
       default: return null;
     }
@@ -67,10 +67,9 @@ export default function InventoryManager(props:InventoryManagerProps) {
               px-6 py-2 transition-all text-sm font-medium
               border border-[var(--secondary)]
               rounded-xl
-              ${
-                activeTab === t.key
-                  ? "bg-[var(--button)] text-[var(--font-alt)]" // espresso brown active
-                  : "bg-transparent text-[var(--font-clr)] hover:text-[var(--primary)]"
+              ${activeTab === t.key
+                ? "bg-[var(--button)] text-[var(--font-alt)]" // espresso brown active
+                : "bg-transparent text-[var(--font-clr)] hover:text-[var(--primary)]"
               }
             `}
           >
