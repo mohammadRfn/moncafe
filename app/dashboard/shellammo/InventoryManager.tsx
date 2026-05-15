@@ -68,7 +68,7 @@ export default function InventoryManager(props: InventoryManagerProps) {
               border border-[var(--secondary)]
               rounded-xl
               ${activeTab === t.key
-                ? "bg-[var(--button)] text-[var(--font-alt)]" // espresso brown active
+                ? "bg-[var(--button)] text-[var(--font-alt)]" // espresso brown active uhuhuih
                 : "bg-transparent text-[var(--font-clr)] hover:text-[var(--primary)]"
               }
             `}
